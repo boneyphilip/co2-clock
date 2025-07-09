@@ -1,0 +1,157 @@
+/* =========================================================
+   MY COLOR / FONT VARIABLES (for consistent design)
+   ========================================================= */
+:root {
+  --bg-color: #ffffff;             /* Background color of entire page */
+  --text-color: #111111;           /* Default text color */
+  --primary-color: #ffffff;        /* Light color for headings or nav text */
+  --accent-color: #00ff99;         /* Bright green for CO₂ counter */
+  --nav-bg: rgba(0, 0, 0, 0);      /* Transparent navbar background */
+  --font-main: "Arial", sans-serif; /* Chosen font across the website */
+}
+
+/* === RESET & BASE STYLES === */
+body {
+  font-family: var(--font-main);
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* === HEADER SECTION === */
+header {
+  background-color: var(--nav-bg);
+  padding: 1rem 2rem;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* === HERO SECTION === */
+#hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.hero-bg {
+  background: url("assets/images/chimney-hero.png") center center / cover no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 700px;
+  padding: 2rem;
+  color: var(--primary-color);
+}
+
+.hero-content h2 {
+  font-size: 2.8rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #ccc;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.scroll-down {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  text-decoration: none;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* === DASHBOARD SECTION === */
+#dashboard h2 {
+  font-size: 2rem;
+}
+
+/* === DIGIT DISPLAY STYLING FOR CO₂ VALUE === */
+.co2-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', monospace;
+  font-size: 3rem;
+  color: #00ff99;
+  margin: 1rem 0;
+  gap: 0.1em; /* space between digits */
+}
+
+.digit {
+  width: 1ch;
+  height: 1.2em;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.digit-stack {
+  display: block;
+  transition: transform 0.7s cubic-bezier(.68, -0.55, .27, 1.55);
+  will-change: transform;
+}
+
+.digit-stack span {
+  display: block;
+  height: 1.2em;
+  line-height: 1.2em;
+}
+
+.decimal-point {
+  font-size: 0.9em;
+  color: #00ff99;
+  height: auto;
+}
