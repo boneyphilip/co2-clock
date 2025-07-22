@@ -554,9 +554,406 @@ is changing
 /* Responsive adjustment for mobile */
 @media (max-width: 700px) {
   .about-title {
-    font-size: 1.45rem;
+    font-size: 2.45rem;
   }
   .about-description {
     font-size: 1.02rem;
+  }
+}
+
+/* ========================================================= 
+   CLIMATE SCIENCE DISCOVERY SECTION
+========================================================= */
+.climate-science-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.climate-science-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+}
+
+.discovery-card {
+  height: 500px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.discovery-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.card-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.discovery-card:hover .card-bg-img {
+  transform: scale(1.05);
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  z-index: 2;
+}
+
+.card-title {
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: #cccccc;
+  margin-bottom: 1rem;
+}
+
+.card-arrow {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  transition: transform 0.3s ease;
+}
+
+.discovery-card:hover .card-arrow {
+  transform: translateX(5px);
+}
+
+/* ========================================================= 
+   FOOTER STYLES
+========================================================= */
+footer {
+  background-color: var(--bg-color);
+}
+
+.footer-logo h2 {
+  font-family: var(--font-main);
+  letter-spacing: 2px;
+}
+
+.social-icons {
+  margin-top: 1rem;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--border-color);
+  color: #fff;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: var(--accent-color);
+  color: #000;
+  transform: translateY(-2px);
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent-color) !important;
+}
+
+/* ========================================================= 
+   MOBILE responsive odometer section/co2 numbers
+========================================================= */
+@media (max-width: 767px) {
+  
+  /* Dashboard Main Container - Stack vertically on mobile */
+  .dashboard-main-container {
+    flex-direction: column;
+    margin: 0 1rem;
+    align-items: center; /* Center the container */
+    text-align: center; /* Center all text content */
+  }
+
+  /* Data Dash Section - Remove border and center content */
+  .data-dash-section {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 2rem 1rem 1.5rem 1rem; /* Adjust padding */
+    text-align: center; /* Center align text */
+    width: 100%; /* Full width */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+  }
+
+  /* Main Content Section - Center align */
+  .main-content-section {
+    padding: 1.5rem 1rem; /* Reduce padding */
+    text-align: center; /* Center align all content */
+    width: 100%; /* Full width */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+  }
+
+  /* CO₂ Main Display - Center everything */
+  .co2-main-display {
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content */
+  }
+
+  /* CO₂ Number Display - Center the digits */
+  .co2-number {
+    font-size: 3rem; /* Slightly smaller for mobile */
+    justify-content: center; /* Center the digits */
+    margin-bottom: 1rem;
+    flex-wrap: wrap; /* Allow wrapping if needed */
+  }
+
+  /* CO₂ Unit Text - Center and adjust */
+  .co2-unit-text {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    max-width: 280px; /* Limit width for better readability */
+  }
+
+  /* Bottom Stats Container - Stack vertically */
+  .bottom-stats-container {
+    flex-direction: column;
+    gap: 1.5rem; /* Increase gap between items */
+    align-items: center; /* Center items */
+    width: 100%;
+  }
+
+  /* Individual Stat Items - Center everything */
+  .stat-item {
+    text-align: center;
+    padding: 1rem; /* Add padding */
+    border-right: none; /* Remove right border */
+    border-bottom: 1px solid var(--border-color); /* Add bottom border instead */
+    padding-bottom: 1rem;
+    width: 100%; /* Full width */
+    max-width: 300px; /* Limit max width */
+  }
+
+  /* Remove border from last stat item */
+  .stat-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  /* Stat Numbers - Center and adjust size */
+  .stat-number {
+    font-size: 1.8rem; /* Slightly smaller */
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Stat Descriptions - Center and adjust */
+  .stat-description {
+    text-align: center;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    max-width: 250px; /* Limit width */
+    margin: 0 auto; /* Center the text block */
+  }
+
+  /* World Map - Center and adjust */
+  .world-map-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    height: 50px; /* Slightly smaller */
+  }
+
+  /* Data Dash Title - Center and adjust */
+  .data-dash-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  /* Data Dash Description - Center */
+  .data-dash-description {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    max-width: 280px; /* Limit width for readability */
+  }
+
+  /* Explore Button - Center */
+  .explore-btn {
+    margin: 0 auto; /* Center the button */
+    display: block;
+    width: auto;
+    text-align: center;
+  }
+
+  /* Climate Facts Section - Adjust spacing */
+  .climate-facts-section {
+    margin-top: 2rem;
+  }
+
+  /* Fact Items - Center content on mobile */
+  .fact-item {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Fact Icon - Center */
+  .fact-icon {
+    margin: 0 auto 0.5rem auto; /* Center icon with bottom margin */
+  }
+
+  /* Separator Line - Center and adjust width */
+  .separator-line {
+    width: 90%; /* Slightly narrower */
+    margin: 1.5rem auto; /* Center the line */
+  }
+}
+
+/* ========================================================= 
+   VERY SMALL MOBILE STYLES - UPDATED (below 576px)
+========================================================= */
+@media (max-width: 575px) {
+  
+  /* Further adjustments for very small screens */
+  .dashboard-main-container {
+    margin: 0 0.5rem;
+  }
+
+  .data-dash-section,
+  .main-content-section {
+    padding: 1.5rem 0.75rem; /* Reduce padding further */
+  }
+
+  /* CO₂ Display - Even smaller on tiny screens */
+  .co2-number {
+    font-size: 2.5rem; /* Smaller font size */
+  }
+
+  /* Stat Numbers - Smaller */
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  /* Data Dash Title - Smaller */
+  .data-dash-title {
+    font-size: 1.5rem;
+  }
+
+  /* Adjust text sizes */
+  .co2-unit-text,
+  .data-dash-description,
+  .stat-description {
+    font-size: 0.8rem;
+  }
+
+  /* Stat Items - Adjust padding */
+  .stat-item {
+    padding: 0.75rem;
+    max-width: 280px;
+  }
+}
+
+/* ========================================================= 
+   ADDITIONAL CENTERING UTILITIES
+========================================================= */
+
+/* Ensure proper centering for mobile dashboard */
+@media (max-width: 767px) {
+  
+  /* Force center alignment for all dashboard text */
+  #dashboard * {
+    text-align: center;
+  }
+
+  /* Override any left-aligned text in dashboard */
+  #dashboard .text-start,
+  #dashboard .text-left {
+    text-align: center !important;
+  }
+
+  /* Center any flex containers */
+  #dashboard .d-flex {
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  /* Ensure buttons are centered */
+  #dashboard .btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* Desktop styles (992px and up) */
+@media (min-width: 992px) {
+  .container {
+    max-width: 1200px;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+  }
+}
+
+/* Large desktop styles (1200px and up) */
+@media (min-width: 1200px) {
+  .hero-content h1 {
+    font-size: 4rem;
+  }
+  
+  .co2-number {
+    font-size: 4rem;
+  }
+  
+  .big-title {
+    font-size: 5rem;
   }
 }
