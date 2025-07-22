@@ -49,6 +49,217 @@
     </header>
 
     <!-- Main Content -->
+    <div class="container py-4 mt-5">
+        <!-- Page Header -->
+        <div class="row mb-4">
+            <div class="col-12 text-center text-white">
+                <h1 class="display-5 fw-bold mb-3"><i class="fas fa-smog me-2"></i>Global CO₂ Emissions Dashboard</h1>
+                <p class="lead">Tracking carbon dioxide emissions by country based on latest available data</p>
+                <div class="d-flex justify-content-center gap-3 mt-3">
+                    <span class="badge bg-success"><i class="fas fa-info-circle me-1"></i> Updated: 2024</span>
+                    <span class="badge bg-info"><i class="fas fa-database me-1"></i> Source: World Population Review</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Climate Alert Banner -->
+        <div class="alert alert-danger d-flex align-items-center mb-4">
+            <i class="fas fa-exclamation-triangle fa-2x me-3"></i>
+            <div>
+                <h4 class="alert-heading">Climate Emergency</h4>
+                <p class="mb-0">Global CO₂ emissions continue to rise, with atmospheric levels reaching 421 ppm in 2023. Urgent action is needed to limit global warming to 1.5°C above pre-industrial levels.</p>
+            </div>
+        </div>
+
+        <!-- Key Metrics Cards -->
+        <div class="row mb-4 g-4">
+            <div class="col-md-4">
+                <div class="card text-white h-100 info-card">
+                    <div class="card-header d-flex align-items-center">
+                        <i class="fas fa-industry me-2"></i>
+                        <span>Total Global Emissions</span>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title text-white">36.8 <small class="fs-6">Gigatons</small></h2>
+                        <p class="card-text text-light">Annual CO₂ emissions worldwide</p>
+                        <div class="progress mt-3">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%"></div>
+                        </div>
+                        <p class="small mt-2 mb-0 text-light">Equivalent to 40 billion tons of coal burned</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white h-100 warning-card">
+                    <div class="card-header d-flex align-items-center">
+                        <i class="fas fa-fire me-2"></i>
+                        <span>Top Emitter</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://flagcdn.com/w20/cn.png" class="country-flag" alt="China flag">
+                            <h2 class="card-title mb-0 text-white">China</h2>
+                        </div>
+                        <p class="card-text text-light"><span class="data-highlight">11.47 Gt</span> (30.9% of global total)</p>
+                        <p class="small text-light">Per capita: 8.05 tons annually</p>
+                        <p class="small text-light">China produces more CO₂ than the US and EU combined</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white h-100 danger-card">
+                    <div class="card-header d-flex align-items-center">
+                        <i class="fas fa-user-friends me-2"></i>
+                        <span>Highest Per Capita</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://flagcdn.com/w20/qa.png" class="country-flag" alt="Qatar flag">
+                            <h2 class="card-title mb-0 text-white">Qatar</h2>
+                        </div>
+                        <p class="card-text text-light"><span class="data-highlight">35.6 t</span> per person</p>
+                        <p class="small text-light">Nearly 5× the global average</p>
+                        <p class="small text-light">High emissions due to oil industry and energy-intensive infrastructure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Climate Impact Facts -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="data-section">
+                    <h3 class="mb-4 text-white"><i class="fas fa-exclamation-triangle me-2"></i>Climate Impact Facts</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="impact-fact">
+                                <h5 class="text-white"><i class="fas fa-temperature-high me-2"></i>Global Temperature Rise</h5>
+                                <p class="text-light">Earth's temperature has increased by 1.1°C since the late 1800s, with most warming occurring in the past 40 years.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="impact-fact">
+                                <h5 class="text-white"><i class="fas fa-water me-2"></i>Sea Level Rise</h5>
+                                <p class="text-light">Global sea levels have risen 8-9 inches since 1880, with the rate accelerating in recent decades.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="impact-fact">
+                                <h5 class="text-white"><i class="fas fa-fire me-2"></i>Extreme Weather</h5>
+                                <p class="text-light">Climate-related disasters have tripled over 30 years, causing massive economic and human losses.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="data-section">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="text-white"><i class="fas fa-chart-bar me-2"></i>Top 20 CO₂ Emitting Countries</h3>
+                <div class="dropdown">
+                    <button class="btn btn-outline-accent dropdown-toggle" type="button" id="chartDropdown" data-bs-toggle="dropdown">
+                        <i class="fas fa-filter me-1"></i> View Options
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" onclick="updateChart('total')">Total Emissions</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="updateChart('perCapita')">Per Capita</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="updateChart('percent')">% of World</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="chart-container" style="position: relative; height:500px;">
+                <canvas id="co2Chart"></canvas>
+            </div>
+            <div class="mt-3 text-end">
+                <small class="text-muted">Hover over bars for detailed information</small>
+            </div>
+        </div>
+
+        <!-- Data Table Section -->
+        <div class="data-section mt-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="text-white"><i class="fas fa-table me-2"></i>Complete Country Emissions Data</h3>
+                <div class="input-group" style="max-width: 300px;">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    <input type="text" id="countrySearch" class="form-control custom-input" placeholder="Search countries...">
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th class="sortable" data-sort="rank">Rank <i class="fas fa-sort sort-icon"></i></th>
+                            <th class="sortable" data-sort="country">Country <i class="fas fa-sort sort-icon"></i></th>
+                            <th class="sortable" data-sort="total">Total Emissions <i class="fas fa-sort sort-icon"></i></th>
+                            <th class="sortable" data-sort="percent">% of World <i class="fas fa-sort sort-icon"></i></th>
+                            <th class="sortable" data-sort="perCapita">Per Capita <i class="fas fa-sort sort-icon"></i></th>
+                            <th class="sortable" data-sort="trend">Trend <i class="fas fa-sort sort-icon"></i></th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="countryTable">
+                        <!-- Filled by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <div>
+                    <small class="text-muted">Showing <span id="showingCount">1-20</span> of <span id="totalCount">40</span> countries</small>
+                </div>
+                <nav>
+                    <ul class="pagination pagination-sm mb-0">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Solutions Section -->
+        <div class="data-section mt-4">
+            <h3 class="mb-4 text-white"><i class="fas fa-lightbulb me-2"></i>Climate Solutions</h3>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header bg-success text-white">
+                            <i class="fas fa-solar-panel me-2"></i>Renewable Energy Transition
+                        </div>
+                        <div class="card-body bg-dark text-light">
+                            <p>Shifting to renewable energy sources could reduce global emissions by 65% by 2050.</p>
+                            <ul class="mb-0">
+                                <li>Solar energy costs dropped 90% in the last decade</li>
+                                <li>Wind power could provide 20% of global electricity by 2030</li>
+                                <li>Renewables create 3x more jobs per dollar than fossil fuels</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header bg-primary text-white">
+                            <i class="fas fa-tree me-2"></i>Forest Conservation
+                        </div>
+                        <div class="card-body bg-dark text-light">
+                            <p>Protecting and restoring forests could remove 5.8 billion tons of CO₂ annually.</p>
+                            <ul class="mb-0">
+                                <li>Forests absorb 2.6 billion tons of CO₂ each year</li>
+                                <li>Deforestation accounts for 11% of global CO₂ emissions</li>
+                                <li>Reforestation could capture 25% of current emissions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer id="contact" class="bg-black text-white py-5 mt-auto">
