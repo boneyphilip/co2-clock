@@ -525,3 +525,38 @@ body {
   color: var(--bg-color);
 }
 
+/* ==============================
+   About Section ---The air we breathe
+is changing  
+   ============================== */
+.about-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background: #171c22;  /* subtle dark shade */
+}
+
+.about-title {
+  font-size: 7.5rem;
+  font-weight: 700;
+  line-height: 1.18;
+  color: var(--primary-color, #ffffff);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.about-description {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: #c8d3df;
+  margin-bottom: 0;
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 700px) {
+  .about-title {
+    font-size: 1.45rem;
+  }
+  .about-description {
+    font-size: 1.02rem;
+  }
+}
