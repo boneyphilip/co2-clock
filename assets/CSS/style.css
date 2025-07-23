@@ -619,14 +619,14 @@ is changing
   width: 100%;
 }
 
-.card-bg-img {
+.card-bg-pic {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
 
-.discovery-card:hover .card-bg-img {
+.discovery-card:hover .card-bg-pic {
   transform: scale(1.05);
 }
 
