@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atmospheric CO₂ Trends | CO₂ Clock</title>
+  <!-- Google Fonts and Bootstrap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600&family=Gugi&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/02109f149f.js" crossorigin="anonymous"></script>
+  <!-- Chart.js for Data Visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Your Site CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="bg-dark text-white d-flex flex-column min-vh-100">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-success" href="../../index.html">CO₂ Clock</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../../index.html#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../dash_board.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link active" href="../../articles.html">Articles</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN ARTICLE -->
+  <!-- Atmospheric CO₂ Trends Article Page -->
+
+<main class="article-main-content pt-5">
+  <div class="container" style="max-width: 900px;">
+    <!-- Title & Byline -->
+    <h1 class="articles-main-title mb-2 text-center">Atmospheric CO₂ Trends</h1>
+    <div class="text-center text-secondary mb-5">
+      Tracking Earth’s changing air, from ancient ice cores to modern satellites.
+    </div>
+    
+    <!-- Hero Image -->
+    <figure class="mb-4 text-center">
+      <img src="../images/trapped-co2-bubbles-in-ice.webp" alt="Ancient air bubbles in ice core" class="img-fluid rounded shadow">
+      <figcaption class="text-secondary mt-2 small">
+        Ancient air bubbles trapped in Antarctic ice reveal changes in Earth’s atmosphere over hundreds of thousands of years.
+      </figcaption>
+    </figure>
+
+    <!-- Did You Know? -->
+    <div class="did-you-know-box">
+      The last time atmospheric CO₂ was above 420 ppm was over three million years ago—when Earth was much warmer and seas were dozens of feet higher.
+    </div>
+
+    <!-- Introduction -->
+    <section class="mb-4">
+      <p>
+        Carbon dioxide (CO₂) is only a small fraction of our air, but it has a huge influence on our planet’s climate. For centuries, the level of CO₂ in the atmosphere remained relatively stable. Today, due to the burning of fossil fuels, the amount of CO₂ has skyrocketed to levels not seen in millions of years. Understanding these changes is key to understanding our future.
+      </p>
+      <p>
+        But how do we know how much CO₂ was in the air before modern instruments? And why does it matter so much? The answers come from ice cores, precise modern monitoring, and a new generation of satellites, all of which tell a dramatic story of change.
+      </p>
+    </section>
+
+    <!-- How We Know: Measuring CO₂ -->
+    <section class="mb-4">
+      <h2 class="h4">How Do We Know? Unlocking Earth's Past Atmosphere</h2>
+      <p>
+        For most of human history, no one could measure CO₂ directly. That changed in the 20th century, when scientists began studying <strong>ice cores</strong>—cylinders of ice drilled from Greenland and Antarctica. Trapped within are tiny bubbles of ancient air, frozen snapshots of our planet’s past.
+      </p>
+      <p>
+        Ice core records now stretch back over 800,000 years. By analyzing the gases inside, researchers can reconstruct how CO₂ and other greenhouse gases have changed through ice ages and warm periods. These data show that for nearly a million years, CO₂ never rose above 300 ppm—until now.
+      </p>
+      <figure class="mb-4 text-center">
+        <img src="../images/ice-core-lab.webp" alt="Scientist examining ice core in a lab" class="img-fluid rounded" style="max-width: 100%;">
+        <figcaption class="text-secondary small">
+          Scientists extract and analyze ice cores to reconstruct past atmospheric CO₂. Modern records come from global observatories and satellites.
+        </figcaption>
+      </figure>
+      <p>
+        In 1958, Charles David Keeling began making continuous CO₂ measurements at Mauna Loa Observatory, Hawaii. His “Keeling Curve” showed the world that CO₂ was steadily rising—and that the annual cycle of plant growth and decay created a “breathing” effect in the data. Today, hundreds of ground stations and satellites monitor atmospheric CO₂ in near-real time, offering a global picture.
+      </p>
+    </section>
+
+    <!-- DID YOU KNOW -->
+    <div class="did-you-know-box">
+      The Keeling Curve—first plotted in 1958—is the longest-running direct record of atmospheric CO₂. Each year, it shows a sawtooth pattern as Northern Hemisphere plants absorb and release carbon.
+    </div>
+
+    <!-- The Record: What Does It Show? -->
+    <section class="mb-4">
+      <h2 class="h4">The CO₂ Record: Unprecedented Change</h2>
+      <p>
+        Over the past 800,000 years, CO₂ levels fluctuated between about 180 ppm (during ice ages) and 280 ppm (during warm interglacials). Since the late 1800s, however, human activities—especially burning coal, oil, and gas—have added vast amounts of carbon to the air.
+      </p>
+      <p>
+        By 2023, CO₂ surpassed 420 ppm for the first time in millions of years. That’s a 50% increase since the Industrial Revolution, and the rate of rise is accelerating: CO₂ is climbing about 2.5 ppm per year—more than 100 times faster than natural changes at the end of the last ice age.
+      </p>
+      <div class="my-4 text-center">
+        <canvas id="co2TrendsChart" style="max-width: 100%; height: 340px;"></canvas>
+        <div class="text-secondary small mt-1">
+          Chart: CO₂ levels from ice cores (blue) and modern instruments (red). Data: NOAA, NASA, Scripps Institution of Oceanography.
+        </div>
+      </div>
+      <p>
+        This spike in CO₂ drives a host of changes across the Earth system: higher average temperatures, more frequent heat waves, melting glaciers and sea ice, ocean acidification, and rising sea levels. The evidence is overwhelming—Earth is entering climate conditions not seen since long before humans evolved.
+      </p>
+    </section>
+
+    <!-- DID YOU KNOW -->
+    <div class="did-you-know-box">
+      Human activities now release over 40 billion tons of CO₂ per year—mainly from burning fossil fuels and deforestation.
+    </div>
+
+    <!-- Why CO₂ Matters -->
+    <section class="mb-4">
+      <h2 class="h4">Why Does CO₂ Matter So Much?</h2>
+      <p>
+        Carbon dioxide is the most important long-lived greenhouse gas in Earth’s atmosphere. While water vapor is more abundant, it responds quickly to temperature, whereas CO₂ lingers for centuries, locking in warming. As the IPCC states, every additional ton of CO₂ raises Earth’s temperature a bit more.
+      </p>
+      <p>
+        Scientists have shown that if emissions continue unchecked, CO₂ could reach levels unseen in 10–20 million years, making parts of Earth unrecognizable. But the story isn’t all grim: cutting CO₂ emissions can slow, then eventually halt, further warming.
+      </p>
+    </section>
+
+    <!-- DID YOU KNOW -->
+    <div class="did-you-know-box">
+      About one-quarter of human-emitted CO₂ is absorbed by the oceans, making seawater more acidic—a threat to coral reefs and marine life.
+    </div>
+
+    <!-- What Next? -->
+    <section class="mb-4">
+      <h2 class="h4">What Can Be Done?</h2>
+      <p>
+        Tracking atmospheric CO₂ tells us how urgently action is needed. The world’s governments have agreed to limit warming to “well below 2°C,” which requires major reductions in CO₂ emissions. Solutions include switching to renewable energy, protecting and restoring forests, improving energy efficiency, and developing new technologies for carbon capture.
+      </p>
+      <figure class="mb-4 text-center">
+        <img src="../images/co2-forest-solution.webp" alt="Forest and renewable energy as climate solutions" class="img-fluid rounded" style="max-width: 100%;">
+        <figcaption class="text-secondary small">
+          Forests and clean energy are two powerful tools to limit atmospheric CO₂ and protect Earth’s climate.
+        </figcaption>
+      </figure>
+      <p>
+        Everyone—from individuals to governments—can help by reducing energy waste, supporting sustainable practices, and encouraging innovation. By acting now, we can help shape a safer, more stable climate for future generations.
+      </p>
+    </section>
+
+    <!-- Footer reference -->
+    <div class="border-top mt-5 pt-3 text-center text-muted small">
+      <span>Page content based on NASA, NOAA, IPCC, and scientific sources, 2025.</span>
+    </div>
+  </div>
+</main>
+
+
+
+
+  <!-- FOOTER -->
+  <footer id="contact" class="bg-black text-white py-5 mt-auto">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Logo Section -->
+                <div class="col-lg-6">
+                    <div class="footer-logo">
+                        <h2 class="display-1 fw-bold text-accent mb-3">CO₂CLOCK</h2>
+                        <p class="lead text-light mb-4">
+                            Real-time atmospheric CO₂ tracker based on simulated NOAA data
+                        </p>
+
+                        <!-- Social Icons -->
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/" class="social-icon me-3" target="_blank" rel="noopener" aria-label="Visit in facebook page (opens in a new tab) ">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" class="social-icon me-3" target="_blank" rel="noopener" aria-label="Visit in instagram page (opens in a new tab) ">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://x.com/" class="social-icon me-3" target="_blank" rel="noopener" aria-label="Visit in x page (opens in a new tab) ">
+                                <i class="fab fa-x"></i>
+                            </a>
+                            <a href="https://discord.com/" class="social-icon me-3" target="_blank" rel="noopener" aria-label="Visit in discord page (opens in a new tab) ">
+                                <i class="fab fa-discord"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h5 fw-bold mb-4">Navigation</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html" class="text-light">Home</a></li>
+                        <li><a href="dash_board.html" class="text-light">Dashboard</a></li>
+                        <li><a href="articles.html" class="text-light">Articles</a></li>
+                        <li><a href="index.html#about" class="text-light">About</a></li>
+                        <li><a href="index.html#contact" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- About Us -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h5 fw-bold mb-4">About Us</h4>
+                    <p class="text-light small">
+                        We are passionate climate advocates dedicated to raising awareness about CO₂ emissions
+                        and their impact on our planet. Our mission is to make climate data accessible and
+                        understandable for everyone, inspiring action for a sustainable future.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <hr class="my-4 border-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-muted-light">
+                        Built by Boney Philip for learning and awareness | &copy; 2025
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="mailto:your@email.com" class="text-light me-3">
+                        <i class="fa-solid fa-envelope"></i> Email
+                    </a>
+                    <a href="https://github.com/yourusername" class="text-light">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+  <!-- Bootstrap JS (for navbar) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <!-- Chart: External chart script for this article -->
+  <script src="../charts/co2-trend-chart.js"></script>
+</body>
+</html>
