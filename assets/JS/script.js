@@ -1,35 +1,32 @@
+// Fixed script.js for GitHub Pages deployment
 // Navbar transparency on scroll
 window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) { // Adjust this value based on when you want the effect to trigger
+    if (navbar && window.scrollY > 50) {
         navbar.classList.add('scrolled');
-    } else {
+    } else if (navbar) {
         navbar.classList.remove('scrolled');
     }
 });
-// home page odometer//
+
 // === Simulated Weekly CO₂ Data ===
-// These are just example values based on increasing atmospheric CO₂ levels.
 const weeklyCO2 = [428.5, 428.6, 428.7, 428.8, 428.92357];
 
 // Calculate how much CO₂ is rising every second (ppm/second)
-const first = weeklyCO2[0]; // First value in the array
-const last = weeklyCO2[weeklyCO2.length - 1]; // Last value
+const first = weeklyCO2[0];
+const last = weeklyCO2[weeklyCO2.length - 1];
 const weeks = weeklyCO2.length - 1;
-const weeklyRise = (last - first) / weeks; // CO₂ rise per week
-const dailyRise = weeklyRise / 7; // Per day
-const secRise = dailyRise / (24 * 60 * 60); // Per second
+const weeklyRise = (last - first) / weeks;
+const dailyRise = weeklyRise / 7;
+const secRise = dailyRise / (24 * 60 * 60);
 
 // Starting point for CO₂ value
-let currentCO2 = last; // or a custom starting value like 428.589104
+let currentCO2 = last;
 
 /**
- * === update CO2 Display ===
- * This function updates the DOM to show the new CO₂ value
- * Each digit is animated to roll vertically if the digit changes
+ * Update CO2 Display with animation
  */
 function updateCO2Display(value) {
-  // Convert CO₂ value to a string with 6 decimals (e.g. "428.593104")
   const digits = value.toFixed(6).replace(".", "").padStart(9, "0");
   const digitDivs = document.querySelectorAll(".co2-number .digit");
 
@@ -38,7 +35,6 @@ function updateCO2Display(value) {
     const newDigit = digits[i];
     const oldDigit = stack ? stack.getAttribute("data-current") : null;
 
-    // If no stack exists yet, create it for initial load
     if (!stack) {
       stack = document.createElement("span");
       stack.className = "digit-stack";
@@ -49,59 +45,27 @@ function updateCO2Display(value) {
       continue;
     }
 
-    // Only animate if digit actually changes
     if (oldDigit !== newDigit) {
-      // Stack will slide up to reveal new digit
       stack.innerHTML = `<span>${oldDigit}</span><span>${newDigit}</span>`;
       stack.style.transform = "translateY(0)";
       stack.setAttribute("data-current", newDigit);
 
-      // Apply animation
       setTimeout(() => {
         stack.style.transform = "translateY(-1.2em)";
       }, 10);
 
-      // After animation ends, reset stack
       setTimeout(() => {
         stack.innerHTML = `<span>${newDigit}</span><span>${newDigit}</span>`;
-        stack.style.transition = "none"; // temporarily disable transition
+        stack.style.transition = "none";
         stack.style.transform = "translateY(0)";
-        void stack.offsetWidth; // Force reflow (hack)
-        stack.style.transition = ""; // re-enable
+        void stack.offsetWidth;
+        stack.style.transition = "";
       }, 410);
     }
   }
 }
 
-// === Initial Setup When Page Loads ===
-window.addEventListener("DOMContentLoaded", () => {
-  // Ensure each digit container has a span inside
-  document.querySelectorAll(".co2-display .digit").forEach((digitDiv) => {
-    if (!digitDiv.querySelector(".digit-inner")) {
-      const inner = document.createElement("span");
-      inner.className = "digit-inner";
-      inner.textContent = "0";
-      digitDiv.appendChild(inner);
-    }
-  });
-
-  // Set the initial CO₂ display
-  updateCO2Display(currentCO2);
-
-  // Update value every 500ms with a small random offset
-  setInterval(() => {
-    const noise = Math.random() * 0.0000001; // random small bump
-    currentCO2 += secRise + noise; // simulate continuous growth
-    updateCO2Display(currentCO2); // update display
-  }, 500);
-});
-
-//datadash page //
-
-// CO₂ Emissions Dashboard - JavaScript
-// Complete version with all available country data
-
-// Data for countries with emissions information (Top 50 countries)
+// === Dashboard Data ===
 const emissionsData = [
   { rank: 1, country: "China", code: "cn", total: 11470, percent: 30.9, perCapita: 8.05, trend: "up" },
   { rank: 2, country: "United States", code: "us", total: 5000, percent: 13.5, perCapita: 15.24, trend: "down" },
@@ -181,7 +145,7 @@ let currentChartType = "total";
 let currentSortColumn = "rank";
 let currentSortDirection = "asc";
 
-// Function to get trend icon
+// Utility functions
 function getTrendIcon(trend) {
   switch (trend) {
     case "up":
@@ -193,7 +157,7 @@ function getTrendIcon(trend) {
   }
 }
 
-// Function to create status bar based on percentage
+// FIXED: Removed duplicate return statements
 function createStatusBar(percent) {
   let barColor = 'bg-success';
   let status = 'Low Impact';
@@ -209,40 +173,23 @@ function createStatusBar(percent) {
     status = 'Moderate';
   }
 
-let labelClass = '';
-if (status === 'Critical') labelClass = 'critical';
-else if (status === 'High Impact') labelClass = 'high';
-else if (status === 'Moderate') labelClass = 'moderate';
-else labelClass = 'low';
-
-return `
-  <div class="d-flex align-items-center">
-    <div class="progress flex-grow-1 me-2" style="height: 20px; width: 80px;">
-      <div class="progress-bar ${barColor}" role="progressbar" 
-           style="width: ${Math.min(percent * 3, 100)}%" 
-           title="${percent}% of global emissions">
+  return `
+    <div class="d-flex align-items-center">
+      <div class="progress flex-grow-1 me-2" style="height: 20px; width: 80px;">
+        <div class="progress-bar ${barColor}" role="progressbar" 
+             style="width: ${Math.min(percent * 3, 100)}%" 
+             title="${percent}% of global emissions">
+        </div>
       </div>
+      <small class="text-muted">${status}</small>
     </div>
-    <small class="text-muted status-label ${labelClass}">${status}</small>
-  </div>
-`;
-return `
-  <div class="d-flex align-items-center">
-    <div class="progress flex-grow-1 me-2" style="height: 20px; width: 80px;">
-      <div class="progress-bar ${barColor}" role="progressbar" 
-           style="width: ${Math.min(percent * 3, 100)}%" 
-           title="${percent}% of global emissions">
-      </div>
-    </div>
-    <small class="text-muted status-label ${labelClass}">${status}</small>
-  </div>
-`;
+  `;
 }
 
-
-// Function to render the table
 function renderTable(data) {
   const tableBody = document.getElementById("countryTable");
+  if (!tableBody) return; // Exit if element doesn't exist
+  
   tableBody.innerHTML = "";
   
   data.forEach((item) => {
@@ -265,21 +212,24 @@ function renderTable(data) {
     tableBody.appendChild(row);
   });
   
-  // Update showing count
-  document.getElementById("showingCount").textContent = `1-${Math.min(data.length, 50)}`;
-  document.getElementById("totalCount").textContent = data.length;
+  // Update showing count safely
+  const showingCountEl = document.getElementById("showingCount");
+  const totalCountEl = document.getElementById("totalCount");
+  
+  if (showingCountEl) showingCountEl.textContent = `1-${Math.min(data.length, 70)}`;
+  if (totalCountEl) totalCountEl.textContent = data.length;
 }
 
-// Function to update table with search and sort
 function updateTable() {
-  const searchTerm = document.getElementById("countrySearch").value.toLowerCase();
+  const searchInput = document.getElementById("countrySearch");
+  if (!searchInput) return;
   
-  // Filter data based on search
+  const searchTerm = searchInput.value.toLowerCase();
+  
   const filteredData = emissionsData.filter((item) =>
     item.country.toLowerCase().includes(searchTerm)
   );
 
-  // Sort data
   filteredData.sort((a, b) => {
     const valA = a[currentSortColumn];
     const valB = b[currentSortColumn];
@@ -295,7 +245,6 @@ function updateTable() {
   updateSortIcons();
 }
 
-// Function to update sort icons
 function updateSortIcons() {
   document.querySelectorAll(".sortable .sort-icon").forEach((icon) => {
     icon.classList.remove("fa-sort-up", "fa-sort-down");
@@ -309,10 +258,13 @@ function updateSortIcons() {
   }
 }
 
-// Function to create/update chart
+// FIXED: Made updateChart function global and safe
 function updateChart(type = "total") {
+  const chartCanvas = document.getElementById("co2Chart");
+  if (!chartCanvas) return; // Exit if chart element doesn't exist
+  
   currentChartType = type;
-  const ctx = document.getElementById("co2Chart").getContext("2d");
+  const ctx = chartCanvas.getContext("2d");
   const top20 = emissionsData.slice(0, 20);
 
   let label, data, backgroundColor;
@@ -409,43 +361,50 @@ function updateChart(type = "total") {
   });
 }
 
-// Function to setup navbar transparency
-function setupNavbarTransparency() {
-  const navbar = document.getElementById("navbar");
-  if (navbar) {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
-    });
-  }
-}
+// Make updateChart globally accessible
+window.updateChart = updateChart;
 
 // Initialize everything when page loads
 document.addEventListener("DOMContentLoaded", () => {
-  // Render initial table and chart
-  renderTable(emissionsData);
-  updateChart();
-  setupNavbarTransparency();
+  // Initialize CO₂ counter if elements exist
+  const co2Display = document.querySelector(".co2-number");
+  if (co2Display) {
+    updateCO2Display(currentCO2);
+    
+    // Update CO₂ counter every 500ms
+    setInterval(() => {
+      const noise = Math.random() * 0.0000001;
+      currentCO2 += secRise + noise;
+      updateCO2Display(currentCO2);
+    }, 500);
+  }
 
-  // Setup search functionality
-  document.getElementById("countrySearch").addEventListener("input", updateTable);
+  // Initialize dashboard if elements exist
+  const countryTable = document.getElementById("countryTable");
+  if (countryTable) {
+    renderTable(emissionsData);
+    updateChart();
 
-  // Setup table sorting
-  document.querySelectorAll(".sortable").forEach((header) => {
-    header.addEventListener("click", () => {
-      const sortColumn = header.dataset.sort;
-      if (currentSortColumn === sortColumn) {
-        currentSortDirection = currentSortDirection === "asc" ? "desc" : "asc";
-      } else {
-        currentSortColumn = sortColumn;
-        currentSortDirection = "asc";
-      }
-      updateTable();
+    // Setup search functionality
+    const searchInput = document.getElementById("countrySearch");
+    if (searchInput) {
+      searchInput.addEventListener("input", updateTable);
+    }
+
+    // Setup table sorting
+    document.querySelectorAll(".sortable").forEach((header) => {
+      header.addEventListener("click", () => {
+        const sortColumn = header.dataset.sort;
+        if (currentSortColumn === sortColumn) {
+          currentSortDirection = currentSortDirection === "asc" ? "desc" : "asc";
+        } else {
+          currentSortColumn = sortColumn;
+          currentSortDirection = "asc";
+        }
+        updateTable();
+      });
     });
-  });
 
-  console.log("Dashboard loaded successfully with", emissionsData.length, "countries!");
+    console.log("Dashboard loaded successfully with", emissionsData.length, "countries!");
+  }
 });
