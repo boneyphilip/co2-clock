@@ -163,9 +163,9 @@
                         <i class="fas fa-filter me-1"></i> View Options
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#" onclick="updateChart('total')">Total Emissions</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="updateChart('perCapita')">Per Capita</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="updateChart('percent')">% of World</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="updateChart('total'); event.preventDefault();">Total Emissions</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="updateChart('perCapita'); event.preventDefault();">Per Capita</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="updateChart('percent'); event.preventDefault();">% of World</a></li>
                     </ul>
                 </div>
             </div>
@@ -213,8 +213,8 @@
                         <li class="page-item disabled">
                             <a class="page-link" href="#" tabindex="-1">Previous</a>
                         </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item active"><a class="page-link" href="#" onclick="event.preventDefault();">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#" onclick="event.preventDefault();">2</a></li>
                         <li class="page-item">
                             <a class="page-link" href="#">Next</a>
                         </li>
