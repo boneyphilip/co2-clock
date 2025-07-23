@@ -208,19 +208,37 @@ function createStatusBar(percent) {
     barColor = 'bg-info';
     status = 'Moderate';
   }
-  
-  return `
-    <div class="d-flex align-items-center">
-      <div class="progress flex-grow-1 me-2" style="height: 20px; width: 80px;">
-        <div class="progress-bar ${barColor}" role="progressbar" 
-             style="width: ${Math.min(percent * 3, 100)}%" 
-             title="${percent}% of global emissions">
-        </div>
+
+let labelClass = '';
+if (status === 'Critical') labelClass = 'critical';
+else if (status === 'High Impact') labelClass = 'high';
+else if (status === 'Moderate') labelClass = 'moderate';
+else labelClass = 'low';
+
+return `
+  <div class="d-flex align-items-center">
+    <div class="progress flex-grow-1 me-2" style="height: 20px; width: 80px;">
+      <div class="progress-bar ${barColor}" role="progressbar" 
+           style="width: ${Math.min(percent * 3, 100)}%" 
+           title="${percent}% of global emissions">
       </div>
-      <small class="text-muted">${status}</small>
     </div>
-  `;
+    <small class="text-muted status-label ${labelClass}">${status}</small>
+  </div>
+`;
+return `
+  <div class="d-flex align-items-center">
+    <div class="progress flex-grow-1 me-2" style="height: 20px; width: 80px;">
+      <div class="progress-bar ${barColor}" role="progressbar" 
+           style="width: ${Math.min(percent * 3, 100)}%" 
+           title="${percent}% of global emissions">
+      </div>
+    </div>
+    <small class="text-muted status-label ${labelClass}">${status}</small>
+  </div>
+`;
 }
+
 
 // Function to render the table
 function renderTable(data) {

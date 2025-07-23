@@ -1178,6 +1178,21 @@ footer {
   color: #eeeeee;
 }
 
+.text-yellow {
+  color: #FFD600 !important;  /* Or any yellow you like */
+}
+
+.status-label { font-weight: bold; }
+.status-label.critical { color: #ff5252 !important; }    /* Red for Critical */
+.status-label.high { color: #ffc107 !important; }        /* Amber for High Impact */
+.status-label.moderate { color: #00e676 !important; }    /* Green for Moderate */
+.status-label.low { color: #40c4ff !important; }         /* Blue for Low Impact */
+
+.text-muted.text-white {
+  color: #fff !important;
+}
+
+
 /* DASHBOARD RESPONSIVE TWEAKS */
 @media (max-width: 767px) {
   .data-section { padding: 15px; margin-bottom: 20px; }
