@@ -1500,3 +1500,32 @@ footer {
 /* =============================== */
 /* END ARTICLE LANDING DETAIL PAGE SECTION */
 /* =============================== */
+.card {
+  border-radius: 10px;
+  background-color: rgba(var(--border-color-rgb), var(--dashboard-transparent-bg-alpha));
+  border: 1px solid rgba(var(--text-color-rgb), var(--dashboard-transparent-border-alpha));
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  color: var(--text-color);
+  transition: transform 0.3s ease;
+}
+
+/* Fix for data sections (if they're missing) */
+.data-section {
+  background-color: rgba(var(--border-color-rgb), var(--dashboard-transparent-bg-alpha));
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(var(--text-color-rgb), var(--dashboard-transparent-border-alpha));
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+}
+
+/* Fix for impact facts (if they're missing) */
+.impact-fact {
+  background-color: rgba(var(--accent-color-rgb), 0.1);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: background-color 0.3s ease;
+}
