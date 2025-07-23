@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Climate Data Analysis | CO₂ Clock</title>
+  <!-- Google Fonts and Bootstrap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600&family=Gugi&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/02109f149f.js" crossorigin="anonymous"></script>
+  <!-- Chart.js for Data Visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body class="bg-dark text-white d-flex flex-column min-vh-100">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-success" href="index.html">CO₂ Clock</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../dash_board.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link active" href="../../articles.html">Articles</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../index.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="../../index.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN ARTICLE -->
+  <main class="article-main-content pt-5">
+    <div class="container" style="max-width: 900px;">
+      <!-- Title & Byline -->
+      <h1 class="articles-main-title mb-2 text-center">Climate Data Analysis</h1>
+      <div class="text-center text-secondary mb-5">
+        Turning billions of climate measurements into insights that shape our future.
+      </div>
+      
+      <!-- Hero Image -->
+      <figure class="mb-4 text-center">
+        <img src="../images/climate-data-lab.webp" alt="Scientists in a climate data analysis lab" class="img-fluid rounded shadow article-hero-img">
+        <figcaption class="text-secondary mt-2 small">
+          Scientists and advanced computers work together to analyze climate data from satellites, ground stations, and ocean buoys.
+        </figcaption>
+      </figure>
+
+      <!-- DID YOU KNOW BOX -->
+      <div class="did-you-know-box">
+        Every day, more than 30,000 climate stations and dozens of satellites collect petabytes of data about our planet’s atmosphere, land, and oceans.
+      </div>
+
+      <!-- Introduction -->
+      <section>
+        <p>
+          From rising global temperatures to melting polar ice, the world’s changing climate is revealed through data—massive amounts of it. Climate data analysis is the process of collecting, verifying, and interpreting billions of measurements from around the world. The result: a clearer understanding of our planet’s past, present, and likely future.
+        </p>
+        <p>
+          This field brings together experts in science, engineering, and computing, who use data to answer crucial questions: How fast are temperatures rising? Which regions are most affected by extreme weather? Are greenhouse gas emissions increasing or declining?
+        </p>
+      </section>
+
+      <!-- Section: How Climate Data is Collected -->
+      <section>
+        <h2 class="h4">How Is Climate Data Collected?</h2>
+        <p>
+          Modern climate science depends on an extraordinary global network of instruments. <strong>Satellites</strong> orbiting hundreds of miles above Earth monitor atmospheric gases, surface temperatures, ocean color, and ice extent. <strong>Ground stations</strong> measure air temperature, humidity, wind, and precipitation at millions of points on land. <strong>Ocean buoys</strong> track temperature, currents, and acidity far from shore, while weather balloons sample the upper atmosphere.
+        </p>
+        <figure class="mb-4 text-center">
+          <img src="../images/global-climate-observation-network.webp" alt="Global climate observation network illustration" class="img-fluid rounded">
+          <figcaption class="text-secondary small">
+            The global climate observation network includes satellites, land stations, ships, buoys, and aircraft—capturing data in every part of the world.
+          </figcaption>
+        </figure>
+        <p>
+          These systems collect data every minute of every day. Climate agencies such as NASA, NOAA, and the European Space Agency combine these data into comprehensive records that allow us to study trends over decades and even centuries.
+        </p>
+      </section>
+      
+      <!-- DID YOU KNOW BOX -->
+      <div class="did-you-know-box">
+        Some Antarctic weather stations have been gathering climate data for over 60 years—helping scientists understand long-term trends far from cities or farms.
+      </div>
+      
+      <!-- Section: Analyzing Climate Data -->
+      <section>
+        <h2 class="h4">From Raw Numbers to Big Insights</h2>
+        <p>
+          Climate data analysis isn’t just about collecting numbers. Scientists use powerful computers and advanced mathematics to process, clean, and check the data for errors. They use statistical methods, machine learning, and computer models to reveal trends and make predictions.
+        </p>
+        <p>
+          For example, climate models can simulate how Earth’s temperature responds to rising greenhouse gases, or how rainfall patterns might shift in the future. Big data tools help identify changes that would be impossible to spot by hand, such as subtle shifts in ocean currents or the frequency of heatwaves.
+        </p>
+      </section>
+      
+      <!-- Chart Placeholder -->
+      <div class="my-4 text-center">
+        <canvas id="globalTempChart" style="max-width: 100%; height: 340px;"></canvas>
+        <div class="text-secondary small mt-1">
+          Chart: Global average temperature anomaly, 1880–2023. Data: NASA, NOAA.
+        </div>
+      </div>
+
+      <!-- Section: Why It Matters -->
+      <section>
+        <h2 class="h4">Why Climate Data Matters</h2>
+        <p>
+          Reliable climate data analysis is essential for governments, businesses, and individuals to make informed decisions. It helps cities prepare for heatwaves and floods, enables farmers to adapt their crops, and guides international agreements to reduce greenhouse gas emissions.
+        </p>
+        <p>
+          Open access to climate data also means that students, researchers, and the public can explore the science for themselves—building trust and understanding about our changing world.
+        </p>
+      </section>
+
+      <!-- DID YOU KNOW BOX -->
+      <div class="did-you-know-box">
+        NASA’s climate data is available for free online. Anyone can view temperature records, greenhouse gas trends, and satellite images of our planet.
+      </div>
+
+      <!-- Section: Looking Forward -->
+      <section>
+        <h2 class="h4">Looking Ahead: The Future of Climate Data</h2>
+        <p>
+          As technology advances, climate data will become even more detailed and accurate. New satellites, artificial intelligence, and citizen science initiatives are making it easier than ever to understand and protect our planet. By turning vast quantities of data into knowledge, we can take smarter action for a more sustainable future.
+        </p>
+      </section>
+      
+      <div class="border-top mt-5 pt-3 text-center text-muted small">
+        <span>Page content based on NASA, NOAA, ESA, and scientific sources, 2025.</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="bg-black text-white py-5 mt-auto">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Logo Section -->
+                <div class="col-lg-6">
+                    <div class="footer-logo">
+                        <h2 class="display-1 fw-bold text-accent mb-3">CO₂CLOCK</h2>
+                        <p class="lead text-light mb-4">
+                            Real-time atmospheric CO₂ tracker based on simulated NOAA data
+                        </p>
+
+                        <!-- Social Icons -->
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/" class="social-icon me-3" target="_blank" rel="noopener" aria-label="Visit in facebook page (opens in a new tab) ">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" class="social-icon me-3" target="_blank" rel="noopener" aria-label="Visit in instagram page (opens in a new tab) ">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://x.com/" class="social-icon me-3" target="_blank" rel="noopener" aria-label="Visit in x page (opens in a new tab) ">
+                                <i class="fab fa-x"></i>
+                            </a>
+                            <a href="https://discord.com/" class="social-icon me-3" target="_blank" rel="noopener" aria-label="Visit in discord page (opens in a new tab) ">
+                                <i class="fab fa-discord"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h5 fw-bold mb-4">Navigation</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="index.html" class="text-light">Home</a></li>
+                        <li><a href="dash_board.html" class="text-light">Dashboard</a></li>
+                        <li><a href="articles.html" class="text-light">Articles</a></li>
+                        <li><a href="index.html#about" class="text-light">About</a></li>
+                        <li><a href="index.html#contact" class="text-light">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- About Us -->
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="h5 fw-bold mb-4">About Us</h4>
+                    <p class="text-light small">
+                        We are passionate climate advocates dedicated to raising awareness about CO₂ emissions
+                        and their impact on our planet. Our mission is to make climate data accessible and
+                        understandable for everyone, inspiring action for a sustainable future.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <hr class="my-4 border-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-muted-light">
+                        Built by Boney Philip for learning and awareness | &copy; 2025
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="mailto:your@email.com" class="text-light me-3">
+                        <i class="fa-solid fa-envelope"></i> Email
+                    </a>
+                    <a href="https://github.com/yourusername" class="text-light">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <!-- Chart Script for Temperature -->
+  <script src="../charts/global-temp-anomaly-chart.js"></script>
+</body>
+</html>
