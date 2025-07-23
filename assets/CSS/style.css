@@ -23,12 +23,32 @@
   --border-color-rgb: 57, 62, 70; /* RGB for transparency */
   --secondary-bg: #393e46; /* Medium gray for cards */
 
+    /* Dashboard specific colors */
 
+  --dashboard-card-header-text: #000; /* Black text for contrast on accent color headers */
+  --dashboard-header-gradient-end: #008c92; /* Darker shade of accent for gradient */
+  --dashboard-transparent-bg-alpha: 0.3; /* Alpha for transparent backgrounds */
+  --dashboard-transparent-border-alpha: 0.1; /* Alpha for transparent borders */
+  --dashboard-hover-accent-alpha: 0.2; /* Alpha for accent hover effects */
+  --dashboard-tooltip-bg-alpha: 0.9; /* Alpha for tooltip background */
+
+  /* Status colors */
+
+  --danger-color: #ff2e63; /* Red for warnings/errors */
+  --danger-color-rgb: 255, 46, 99;
+  --warning-color: #f9ed69; /* Yellow for cautions */
+  --warning-color-rgb: 249, 237, 105;
+  --success-color: #6bcb77; /* Green for success/positive */
+  --success-color-rgb: 107, 203, 119;
 
   /* Typography */
   --font-main: "lora", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
   --font-digit: "Courier New", Monaco, Consolas, monospace;
+  /* Spacing and effects */
 
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 
 }
 
@@ -560,6 +580,7 @@ is changing
     font-size: 1.02rem;
   }
 }
+
 
 /* ========================================================= 
    CLIMATE SCIENCE DISCOVERY SECTION
